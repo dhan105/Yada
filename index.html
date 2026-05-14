@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hero Section</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#0f0f0f;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 10%;
+      position:relative;
+      background:
+      radial-gradient(circle at top left,#1f1f1f,#0a0a0a 60%);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:#4f46e5;
+      filter:blur(140px);
+      opacity:0.25;
+      top:-150px;
+      right:-100px;
+      z-index:0;
+    }
+
+    .content{
+      max-width:650px;
+      z-index:1;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:8px 16px;
+      border:1px solid rgba(255,255,255,0.15);
+      border-radius:999px;
+      margin-bottom:20px;
+      color:#bdbdbd;
+      font-size:14px;
+      backdrop-filter:blur(10px);
+    }
+
+    h1{
+      font-size:clamp(3rem,7vw,6rem);
+      line-height:1;
+      margin-bottom:20px;
+      font-weight:800;
+    }
+
+    h1 span{
+      color:#7c73ff;
+    }
+
+    p{
+      color:#b3b3b3;
+      line-height:1.7;
+      font-size:18px;
+      margin-bottom:35px;
+      max-width:550px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s ease;
+    }
+
+    .primary{
+      background:#7c73ff;
+      color:white;
+    }
+
+    .primary:hover{
+      background:#655bff;
+      transform:translateY(-2px);
+    }
+
+    .secondary{
+      border:1px solid rgba(255,255,255,0.15);
+      color:white;
+    }
+
+    .secondary:hover{
+      background:rgba(255,255,255,0.05);
+    }
+
+    @media(max-width:768px){
+      .hero{
+        text-align:center;
+        padding:0 7%;
+      }
+
+      .buttons{
+        justify-content:center;
+      }
+
+      p{
+        margin:auto auto 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="content">
+
+      <div class="tag">
+        🚀 Next Generation Experience
+      </div>
+
+      <h1>
+        Build Something
+        <span>People Remember</span>
+      </h1>
+
+      <p>
+        Create modern digital experiences with clean design,
+        powerful visuals, and smooth interactions that actually
+        feel premium instead of looking like another template clone.
+      </p>
+
+      <div class="buttons">
+        <a href="#" class="btn primary">Get Started</a>
+        <a href="#" class="btn secondary">Learn More</a>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
