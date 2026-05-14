@@ -1,271 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hero Section</title>
 
-<title>God of War Inspired Hero</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:#090909;
-    color:white;
-    overflow:hidden;
-    font-family:'Inter',sans-serif;
-}
-
-/* BACKGROUND */
-
-.hero{
-    height:100vh;
-    width:100%;
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    background:
-    linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.82)),
-    url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?q=80&w=1974&auto=format&fit=crop');
-    background-size:cover;
-    background-position:center;
-}
-
-/* SMOKE */
-
-.smoke{
-    position:absolute;
-    width:140%;
-    height:140%;
-    background:
-    radial-gradient(circle at center,
-    rgba(255,255,255,0.03),
-    transparent 60%);
-    animation:smokeMove 18s linear infinite;
-    mix-blend-mode:screen;
-}
-
-@keyframes smokeMove{
-    0%{
-        transform:translateY(0) scale(1);
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
     }
 
-    50%{
-        transform:translateY(-20px) scale(1.05);
+    body{
+      background:#0f0f0f;
+      color:white;
+      overflow-x:hidden;
     }
 
-    100%{
-        transform:translateY(0) scale(1);
-    }
-}
-
-/* GLOW */
-
-.glow{
-    position:absolute;
-    width:600px;
-    height:600px;
-    border-radius:50%;
-    background:rgba(183, 35, 35, 0.18);
-    filter:blur(140px);
-    animation:pulse 5s infinite ease-in-out;
-}
-
-@keyframes pulse{
-    0%,100%{
-        transform:scale(1);
+    .hero{
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 10%;
+      position:relative;
+      background:
+      radial-gradient(circle at top left,#1f1f1f,#0a0a0a 60%);
     }
 
-    50%{
-        transform:scale(1.12);
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:#4f46e5;
+      filter:blur(140px);
+      opacity:0.25;
+      top:-150px;
+      right:-100px;
+      z-index:0;
     }
-}
 
-/* CONTENT */
+    .content{
+      max-width:650px;
+      z-index:1;
+    }
 
-.content{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    max-width:950px;
-    padding:20px;
-}
-
-.symbol{
-    font-size:70px;
-    color:#c42b2b;
-    margin-bottom:10px;
-    text-shadow:0 0 20px rgba(255,0,0,0.4);
-}
-
-.tag{
-    display:inline-block;
-    border:1px solid rgba(255,255,255,0.18);
-    padding:10px 22px;
-    margin-bottom:30px;
-    border-radius:50px;
-    letter-spacing:2px;
-    font-size:12px;
-    text-transform:uppercase;
-    backdrop-filter:blur(8px);
-    background:rgba(255,255,255,0.03);
-}
-
-h1{
-    font-family:'Cinzel',serif;
-    font-size:clamp(4rem,9vw,8rem);
-    line-height:0.95;
-    font-weight:800;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    margin-bottom:25px;
-    text-shadow:
-    0 0 15px rgba(255,255,255,0.08),
-    0 0 40px rgba(255,0,0,0.12);
-}
-
-h1 span{
-    color:#d13636;
-}
-
-.description{
-    max-width:720px;
-    margin:auto;
-    color:#c9c9c9;
-    font-size:18px;
-    line-height:1.8;
-    margin-bottom:45px;
-}
-
-/* BUTTONS */
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    text-decoration:none;
-    padding:16px 38px;
-    border-radius:4px;
-    font-weight:600;
-    letter-spacing:1px;
-    transition:0.35s;
-    position:relative;
-    overflow:hidden;
-}
-
-.primary{
-    background:#b82c2c;
-    color:white;
-    box-shadow:
-    0 0 25px rgba(184,44,44,0.45);
-}
-
-.primary:hover{
-    transform:translateY(-4px) scale(1.03);
-    background:#d73737;
-}
-
-.secondary{
-    border:1px solid rgba(255,255,255,0.15);
-    color:white;
-    background:rgba(255,255,255,0.03);
-    backdrop-filter:blur(10px);
-}
-
-.secondary:hover{
-    background:rgba(255,255,255,0.08);
-    transform:translateY(-4px);
-}
-
-/* BOTTOM FOG */
-
-.fog{
-    position:absolute;
-    bottom:-120px;
-    width:100%;
-    height:300px;
-    background:
-    radial-gradient(circle,
-    rgba(255,255,255,0.08),
-    transparent 70%);
-    filter:blur(60px);
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
+    .tag{
+      display:inline-block;
+      padding:8px 16px;
+      border:1px solid rgba(255,255,255,0.15);
+      border-radius:999px;
+      margin-bottom:20px;
+      color:#bdbdbd;
+      font-size:14px;
+      backdrop-filter:blur(10px);
+    }
 
     h1{
-        line-height:1.05;
+      font-size:clamp(3rem,7vw,6rem);
+      line-height:1;
+      margin-bottom:20px;
+      font-weight:800;
     }
 
-    .description{
-        font-size:16px;
+    h1 span{
+      color:#7c73ff;
+    }
+
+    p{
+      color:#b3b3b3;
+      line-height:1.7;
+      font-size:18px;
+      margin-bottom:35px;
+      max-width:550px;
     }
 
     .buttons{
-        flex-direction:column;
-        align-items:center;
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
     }
 
     .btn{
-        width:220px;
-        text-align:center;
+      padding:14px 28px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s ease;
     }
 
-}
+    .primary{
+      background:#7c73ff;
+      color:white;
+    }
 
-</style>
+    .primary:hover{
+      background:#655bff;
+      transform:translateY(-2px);
+    }
+
+    .secondary{
+      border:1px solid rgba(255,255,255,0.15);
+      color:white;
+    }
+
+    .secondary:hover{
+      background:rgba(255,255,255,0.05);
+    }
+
+    @media(max-width:768px){
+      .hero{
+        text-align:center;
+        padding:0 7%;
+      }
+
+      .buttons{
+        justify-content:center;
+      }
+
+      p{
+        margin:auto auto 35px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<section class="hero">
-
-    <div class="smoke"></div>
-    <div class="glow"></div>
-
+  <section class="hero">
     <div class="content">
 
-        <div class="symbol">Ω</div>
+      <div class="tag">
+        🚀 Next Generation Experience
+      </div>
 
-        <div class="tag">
-            Rise Beyond Mortality
-        </div>
+      <h1>
+        Build Something
+        <span>People Remember</span>
+      </h1>
 
-        <h1>
-            Enter The <span>Northern Saga</span>
-        </h1>
+      <p>
+        Create modern digital experiences with clean design,
+        powerful visuals, and smooth interactions that actually
+        feel premium instead of looking like another template clone.
+      </p>
 
-        <p class="description">
-            Walk through the ashes of fallen kingdoms and awaken
-            the fury of forgotten gods. A cinematic experience forged
-            in myth, blood, frost, and war.
-        </p>
-
-        <div class="buttons">
-            <a href="#" class="btn primary">Begin Journey</a>
-            <a href="#" class="btn secondary">Watch Trailer</a>
-        </div>
+      <div class="buttons">
+        <a href="#" class="btn primary">Get Started</a>
+        <a href="#" class="btn secondary">Learn More</a>
+      </div>
 
     </div>
-
-    <div class="fog"></div>
-
-</section>
+  </section>
 
 </body>
 </html>
