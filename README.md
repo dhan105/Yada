@@ -1,2 +1,2 @@
-# Everyone is Gay (except me)
+# LG The Brand
 
